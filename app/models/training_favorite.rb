@@ -1,0 +1,2 @@
+class TrainingFavorite < ApplicationRecord
+end
