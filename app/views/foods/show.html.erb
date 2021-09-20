@@ -1,0 +1,51 @@
+<div class = "container">
+  <div class = "row">
+    <%= render 'training/new', training:@training_new, food:@food_new %>
+    
+    <div class= "col-md-5.offset-md-1 my-1">
+      <h2>Food detail</h2>
+    </div>
+    
+    <div class = "col-md-6">
+      <table>
+        <thead>
+          <tr>
+            <th>menu</th>
+            <th colspan="2"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @foods.each do |food| %>
+          <tr>
+            <td>
+              <%= food.menu %>
+            </td>
+            <td>
+              <% if food.favorited_by?(current_user) %>
+               <p>
+                <%= link_to food_favorites_path(food), method: :delete do %>
+                  ♥<%= food.favorites.count %> いいね
+                <% end %>
+               </p>
+              <% else %>
+               <p>
+                <%= link_to food_favorites_path(training), method: :post do %>
+                  ♡<%= food.favorites.count %> いいね
+                <% end %>
+               </p>
+              <% end %>
+            </td>
+            <td>
+              <p>コメント<%= food.food_comments.count %>件</p>
+            </td>
+          </tr>
+          <% end %>
+        </tbody>
+        <% if @user.id == current_user.id %>
+         <%= link_to "Edit",edit_food_path(@food.id) %>
+         <%= link_to "Destroy", food_path(@food.id), method: :delete, "data-confirm" => "本当に消しますか？"%>
+        <% end %>
+      </table>
+    </div>
+  </div>
+</div>

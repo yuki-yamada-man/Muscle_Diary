@@ -1,0 +1,42 @@
+<div class = "container" >
+  <div class = "row">
+    <%= render 'training/new', training:@training_new, food:@food_new %>
+    
+    <div class = "col-md-5.offset-md-1 my-1">
+      <h2>Training edit</h2>
+    </div>
+    
+    <div class = "col-md-6">
+      <%= form_with model:@training, local:true do |f| %>
+      <table>
+        <thead>
+          <tr>
+            <th>menu</th>
+            <th>kg</th>
+            <th>count</th>
+            <th>set</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <%= f.text_field:menu %> 
+            </td>
+            <td>
+              <%= f.number_field :kg, step:"0.5" %>
+            </td>
+            <td>
+              <%= f.range_field(:count, in:1..20) %>
+            </td>
+            <td>
+              <%= f.range_field(:set, in:1..5) %>
+            </td>
+          </tr>
+        </tbody>
+        <%= f.submit"Update training" %>
+        <%= link_to"Back",trainings_path(@user.id) %>
+      </table>
+      <% end %>
+    </div>
+  </div>
+</div>
