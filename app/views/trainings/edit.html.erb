@@ -4,6 +4,12 @@
     
     <div class = "col-md-5.offset-md-1 my-1">
       <h2>Training edit</h2>
+      <% if @training.errors.any? %>
+       <%= @training.errors.count %>件のエラーが発生しました
+       <% @training.errors.full_messages.each do |message| %>
+         <%= message %>
+        <% end %>
+      <% end %>
     </div>
     
     <div class = "col-md-6">

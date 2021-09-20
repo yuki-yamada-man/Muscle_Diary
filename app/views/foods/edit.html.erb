@@ -4,6 +4,12 @@
     
     <div class = "col-md-5.offset-md-1 my-1">
       <h2>Food edit</h2>
+      <% if @food.errors.any? %>
+       <%= @food.errors.count %>件のエラーが発生しました
+       <% @food.errors.full_messages.each do |message| %>
+         <%= message %>
+        <% end %>
+      <% end %>
     </div>
     
     <div class = "col-md-6">

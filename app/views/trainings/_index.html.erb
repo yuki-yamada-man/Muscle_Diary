@@ -1,0 +1,26 @@
+<div class= "container">
+  <div class= "row">
+    <%= render 'training/new', training:@training_new, food:@food_new %>
+    
+    <div class = "col-md-5.offset-md-1 my-1" >
+      <h2><center>Trainings you searched</center></h2>
+    </div>
+    
+    <div class = "col-md-6" >
+      <table>
+        <thead>
+          <tr>
+            <th>menu</th>
+          </tr>
+        </thead>
+        <tbody>
+          <%= trainings.each do |training| %>
+          <tr>
+            <td><%= link_to tr.menu, training_path(training) %></td>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
