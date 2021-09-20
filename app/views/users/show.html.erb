@@ -1,0 +1,33 @@
+<div class = "container">
+  <div class = "row">
+    <h2>User</h2>
+    
+    <div class = "col-md-4.offset-md-1 my-1">
+      <%= attachment_image_tag @user, :image, fallback:"no.image.png", size:"100x100" %>
+      <%= link_to "Training", trainings_path(@user.id) %>
+      <%= link_to "Food", foods_path(@user.id) %>
+    </div>
+    
+    <div class = "offset-md-1.col-md-6 my-1">
+      <tbody>
+        <tr></tr>
+        <tr>
+          <th>name</th>
+          <th><%= @user.name %></th>
+        </tr>
+        <tr>
+          <th>gender</th>
+          <th><%= @user.gender %></th>
+        </tr>
+        <tr>
+          <th>introduction</th>
+          <th><%= @user.introduction %></th>
+        </tr>
+      </tbody>
+      <% if user.id == current_user.id do %>
+        <%= link_to "Edit", edit_user_path %>
+      <% end %>
+      <%= link_to "Back",users_path %>
+    </div>
+  </div>
+</div>

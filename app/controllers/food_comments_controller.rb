@@ -10,7 +10,7 @@ class FoodCommentsController < ApplicationController
       redirect_to food_path(@food.id)
     else
       render 'foods/show'
-      
+    end
   end
   
   def destroy

@@ -74,7 +74,7 @@ ActiveRecord::Schema.define(version: 2021_09_18_085350) do
     t.datetime "remember_created_at"
     t.string "name", null: false
     t.string "image_id"
-    t.string "gender", null: false
+    t.string "gender"
     t.text "introduction"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

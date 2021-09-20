@@ -1,0 +1,29 @@
+<div class = "container">
+  <div class = "row">
+    <%= form_with model:@user, local:true do |f| %>
+
+    <div class = "col-md-4.offset-md-1 my-1">
+     <h2>User edit</h2>
+     <%= f.attachment_field :image %>
+    </div>
+
+    <div class = "offset-md-1.col-md-6 my-1">
+      <tbody>
+        <tr></tr>
+        <tr>
+          <th>name</th>
+          <th><%= f.text_field:name %></th>
+        </tr>
+        <tr>
+          <th>gender</th>
+          <th><%= f.select :gender,['男性','女性'],{include_blank: '選択ボックス'} %></th>
+        </tr>
+        <tr>
+          <th>introduction</th>
+          <th><%= f.text_area:introduction %></th>
+        </tr>
+      </tbody>
+      <%= f.submit "Update user" %>
+    </div>
+  </div>
+</div>

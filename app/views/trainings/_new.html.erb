@@ -1,0 +1,36 @@
+<div class = "col-md-3">
+  <%= flash[:notice] %>
+  <h2>New training</h2>
+  <% if trainig.errors.any? %>
+   <%= training.errors.count %> 件のエラーが発生しました。
+   <% training.errors.full_messages.each do |message| %>
+    <%= message %>
+   <% end %>
+  <% end %>
+
+  <%= form_with model:training, local:true do |f| %>
+  <h4>Menu</h4>
+  <%= f.text_field :menu %>
+  <h4>Kg</h4>
+  <%= f.number_field :score, step:"0.5" %>
+  <h4>Count</h4>
+  <%= f.range_field(:discount, in:1..20) %>
+  <h4>Set</h4>
+  <%= f.range_field(:discount, in:1..5) %>
+  <%= f.submit"Create training" %>
+  <% end %>
+
+  <h2>New food</h2>
+  <% if food.errors.any? %>
+   <%= food.errors.count %> 件のエラーが発生しました。
+   <% food.errors.full_messages.each do |message| %>
+    <%= message %>
+   <% end %>
+  <% end %>
+
+  <%= form_with model:food, local:true do |f| %>
+  <h4>Menu</h4>
+  <%= f.text_area :menu %>
+  <%= f.submit"Create food" %>
+  <% end %>
+</div>
