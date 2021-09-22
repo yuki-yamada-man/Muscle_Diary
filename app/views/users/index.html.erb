@@ -1,6 +1,6 @@
 <div class = "container">
   <div class ="row">
-    <%= render 'training/new', training:@training_new, food:@food_new %>
+    <%= render "trainings/new", training:@training_new, food:@food_new %>
     <div class = 'col-md-8.offset-md-1'>
       <h2>User index</h2>
       <table>
@@ -12,10 +12,10 @@
           </tr>
         </thead>
         <tbody>
-          <% @users.each do |user| %>
+        <% @users.each do |user| %>
           <tr>
             <td>
-              <%= attachment_image_tag user, :image, fallback:"no.image.png",size:"100x100" %> 
+              <%= attachment_image_tag user, :image, fallback:"no.image.png",size:"100x100" %>
             </td>
             <td>
               <%= link_to ,user_path(user.id) do %>
@@ -24,6 +24,7 @@
             </td>
             <td><%= user.gender %></td>
           </tr>
+         <% end %>
         </tbody>
       </table>
     </div>

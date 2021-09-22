@@ -1,7 +1,7 @@
 <% if @model =='user' %>
  <h2>Users search for <%= @content %></h2>
  <%= render 'users/index',users:@records %>
-<% else @model =='training' %>
+<% elsif @model =='training' %>
  <h2>Trainings search for <%= @content %></h2>
  <%= render 'trainings/index',trainings:@records %>
 <% else @model =='food' %>

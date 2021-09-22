@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'searchs/search'
   devise_for :users
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'homes#top'
@@ -20,4 +21,6 @@ Rails.application.routes.draw do
   #退会画面への遷移
   patch '/users/:id/withdrow' => 'users#switch', as: 'withdrow_switch_user'
   #会員ステータスの切替
+
+   get '/search', to: 'searchs#search'
 end

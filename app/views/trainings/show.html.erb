@@ -1,11 +1,11 @@
 <div class = "container">
   <div class = "row">
-    <%= render 'training/new', training:@training_new, food:@food_new %>
-    
+    <%= render "trainings/new", training:@training_new, food:@food_new %>
+
     <div class = "col-md-5.offset-md-1 my-1">
       <h2>Training detail</h2>
     </div>
-    
+
     <div class = "col-md-6">
       <table>
         <thead>
@@ -18,40 +18,40 @@
           </tr>
         </thead>
         <tbody>
-          <% @trainings.each do |training| %>
+
           <tr>
             <td>
-              <%= training.menu %>
+              <%= @training.menu %>
             </td>
             <td>
-              <%= training.kg %>
+              <%= @training.kg %>
             </td>
             <td>
-              <%= training.count %>
+              <%= @training.count %>
             </td>
             <td>
-              <%= training.set %>
+              <%= @training.set %>
             </td>
             <td>
-              <% if training.favorited_by?(current_user) %>
+              <% if @training.training_favorited_by?(current_user) %>
                <p>
-                <%= link_to training_favorites_path(training), method: :delete do %>
-                  ♥<%= training.favorites.count %> いいね
+                <%= link_to training_training_favorites_path(@training), method: :delete do %>
+                  ♥<%= @training.training_favorites.count %> いいね
                 <% end %>
                </p>
               <% else %>
                <p>
-                <%= link_to training_favorites_path(training), method: :post do %>
-                  ♡<%= training.favorites.count %> いいね
+                <%= link_to training_training_favorites_path(@training), method: :post do %>
+                  ♡<%= @training.training_favorites.count %> いいね
                 <% end %>
                </p>
               <% end %>
             </td>
             <td>
-              <p>コメント<%= training.training_comments.count %>件</p>
+              <p>コメント<%= @training.training_comments.count %>件</p>
             </td>
           </tr>
-          <% end %>
+
         </tbody>
         <% if @user.id == current_user.id %>
          <%= link_to "Edit",edit_training_path(@training.id) %>
@@ -59,5 +59,6 @@
         <% end %>
       </table>
     </div>
+    
   </div>
 </div>

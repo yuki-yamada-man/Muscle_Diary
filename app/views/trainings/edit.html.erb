@@ -1,7 +1,7 @@
 <div class = "container" >
   <div class = "row">
-    <%= render 'training/new', training:@training_new, food:@food_new %>
-    
+    <%= render "trainings/new", training:@training_new, food:@food_new %>
+
     <div class = "col-md-5.offset-md-1 my-1">
       <h2>Training edit</h2>
       <% if @training.errors.any? %>
@@ -11,7 +11,7 @@
         <% end %>
       <% end %>
     </div>
-    
+
     <div class = "col-md-6">
       <%= form_with model:@training, local:true do |f| %>
       <table>
@@ -26,7 +26,7 @@
         <tbody>
           <tr>
             <td>
-              <%= f.text_field:menu %> 
+              <%= f.text_field:menu %>
             </td>
             <td>
               <%= f.number_field :kg, step:"0.5" %>
@@ -40,7 +40,7 @@
           </tr>
         </tbody>
         <%= f.submit"Update training" %>
-        <%= link_to"Back",trainings_path(@user.id) %>
+        <%= link_to"Back",training_path(@training.id) %>
       </table>
       <% end %>
     </div>

@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @training_new = Training.new
+    @food_new = Food.new
   end
 
   def show

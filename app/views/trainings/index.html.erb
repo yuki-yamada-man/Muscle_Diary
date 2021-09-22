@@ -1,12 +1,12 @@
 <div class = "container">
   <div class = "row">
-    <%= render 'training/new', training:@training_new, food:@food_new %>
+    <%= render "trainings/new", training:@training_new, food:@food_new %>
     <div class = "col-md-8.offset-md-1">
       <h2>Training calendar</h2>
       <%= month_calendar trainings:@trainings do |date, trainings| %>
        <%= date.day %>
        <ul class = "training-list">
-         <% training.each do |training| %>
+         <% trainings.each do |training| %>
          <li class= "list">
            <%= link_to training_path(training.id) do %>
             <%= training.menu %>

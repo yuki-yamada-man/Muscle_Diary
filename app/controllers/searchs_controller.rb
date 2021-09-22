@@ -2,9 +2,9 @@ class SearchsController < ApplicationController
 
   def search
     @model = params[:model]
-    @model = params[:content]
-    @model = params[:method]
-    @record = search_for(@model, @content, @method)
+    @content = params[:content]
+    @method = params[:method]
+    @records = search_for(@model, @content, @method)
   end
 
   private

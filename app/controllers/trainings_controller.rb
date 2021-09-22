@@ -6,7 +6,7 @@ class TrainingsController < ApplicationController
   end
 
   def create
-    @training_new = Training.new(training_paraams)
+    @training_new = Training.new(training_params)
     @training_new.user_id = current_user.id
     if @training_new.save
       redirect_to training_path(@training_new.id),notice:'You have created training succussfuly!'
@@ -20,14 +20,15 @@ class TrainingsController < ApplicationController
   def index
     @training_new = Training.new
     @food_new = Food.new
-    @trainings = training.all
+    @trainings = Training.all
   end
 
   def show
     @training = Training.find(params[:id])
+    @user = User.find_by(id: @training.user_id)
     @training_new = Training.new
     @food_new = Food.new
-    @training_comment = TraininngComment.new
+    @training_comment =TrainingComment.new
   end
 
   def edit
