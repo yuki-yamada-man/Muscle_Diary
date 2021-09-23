@@ -6,7 +6,7 @@ class CreateTrainings < ActiveRecord::Migration[5.2]
       t.float :kg, null: false
       t.integer :count, null: false
       t.integer :set
-      t.date :date
+      t.datetime :start_time
 
 
       t.timestamps

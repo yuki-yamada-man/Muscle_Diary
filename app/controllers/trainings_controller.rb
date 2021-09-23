@@ -9,7 +9,8 @@ class TrainingsController < ApplicationController
     @training_new = Training.new(training_params)
     @training_new.user_id = current_user.id
     if @training_new.save
-      redirect_to training_path(@training_new.id),notice:'You have created training succussfuly!'
+      #redirect_to training_path(@training_new.id),notice:'You have created training succussfuly!'
+      render 'schedule.js.erb'
     else
       @food_new = Food.new
       @training = Training.all
@@ -28,6 +29,7 @@ class TrainingsController < ApplicationController
     @user = User.find_by(id: @training.user_id)
     @training_new = Training.new
     @food_new = Food.new
+    @training_comments = TrainingComment.all
     @training_comment =TrainingComment.new
   end
 
@@ -55,7 +57,7 @@ class TrainingsController < ApplicationController
   private
 
   def training_params
-    params.require(:training).permit(:menu,:kg,:count,:set,:date)
+    params.require(:training).permit(:menu,:kg,:count,:set,:start_time)
   end
 
 end

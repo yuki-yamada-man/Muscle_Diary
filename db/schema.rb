@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_09_18_085350) do
 
   create_table "foods", force: :cascade do |t|
     t.integer "user_id"
-    t.datetime "time"
+    t.datetime "start_time"
     t.text "menu", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2021_09_18_085350) do
     t.float "kg", null: false
     t.integer "count", null: false
     t.integer "set"
-    t.date "date"
+    t.datetime "start_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

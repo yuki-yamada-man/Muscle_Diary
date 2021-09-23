@@ -1,0 +1,1 @@
+$("#<%= @training_new.start_time.day %>").append("<div><a href='/trainings/<%= @training_new.id.to_s.html_safe %>'><%= @training_new.menu.html_safe %></a></div>");

@@ -3,20 +3,19 @@
     <%= render "trainings/new", training:@training_new, food:@food_new %>
     <div class = "col-md-8.offset-md-1">
       <h2>Training calendar</h2>
-      <%= month_calendar trainings:@trainings do |date, trainings| %>
+      <%= month_calendar events: @trainings do |date, trainings| %>
        <%= date.day %>
-       <ul class = "training-list">
-         <% trainings.each do |training| %>
-         <li class= "list">
+       <div id="<%= date.day %>">
+
+       <% trainings.each do |training| %>
+          <div>
            <%= link_to training_path(training.id) do %>
             <%= training.menu %>
-            <%= training.kg %>
-            <%= training.count %>
-            <%= training.set %>
            <% end %>
-         </li>
-         <% end %>
-       </ul>
+          </div>
+
+       <% end %>
+       </div>
       <% end %>
     </div>
   </div>

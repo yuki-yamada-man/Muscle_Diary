@@ -8,7 +8,9 @@
    <% end %>
   <% end %>
 
-  <%= form_with model:training, local:true do |f| %>
+  <%= form_with model:training, remote:true do |f| %>
+  <h4>date</h4>
+  <%= f.datetime_select :start_time %>
   <h4>Menu</h4>
   <%= f.text_field :menu %>
   <h4>Kg</h4>
@@ -28,7 +30,9 @@
    <% end %>
   <% end %>
 
-  <%= form_with model:food, local:true do |f| %>
+  <%= form_with model:food, remote:true do |f| %>
+  <h4>date</h4>
+  <%= f.datetime_select :start_time %>
   <h4>Menu</h4>
   <%= f.text_area :menu %>
   <%= f.submit"Create food" %>
