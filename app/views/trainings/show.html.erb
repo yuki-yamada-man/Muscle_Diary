@@ -53,10 +53,13 @@
           </tr>
 
         </tbody>
+
+        <div>
         <% if @user.id == current_user.id %>
          <%= link_to "Edit",edit_training_path(@training.id) %>
          <%= link_to "Destroy", training_path(@training.id), method: :delete, "data-confirm" => "本当に消しますか？"%>
         <% end %>
+        </div>
       </table>
 
       <div>

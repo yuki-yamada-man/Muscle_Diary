@@ -39,10 +39,14 @@
             </td>
           </tr>
         </tbody>
+
+        <div>
         <% if @food.user.id == current_user.id %>
          <%= link_to "Edit",edit_food_path(@food.id) %>
          <%= link_to "Destroy", food_path(@food.id), method: :delete, "data-confirm" => "本当に消しますか？"%>
         <% end %>
+        </div>
+
       </table>
 
       <div>

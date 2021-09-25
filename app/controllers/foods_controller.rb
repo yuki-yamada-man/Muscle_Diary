@@ -13,7 +13,7 @@ class FoodsController < ApplicationController
       render 'schedule.js.erb'
     else
       @training_new = Training.new
-      @foods = Foods.all
+      @foods = Food.where(user_id: current_user.id)
       render :index
     end
   end
@@ -21,7 +21,7 @@ class FoodsController < ApplicationController
   def index
     @training_new = Training.new
     @food_new = Food.new
-    @foods = Food.all
+    @foods = Food.where(user_id: current_user.id)
   end
 
   def show
