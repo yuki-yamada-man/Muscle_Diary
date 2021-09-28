@@ -1,6 +1,8 @@
-<div class = "container">
-  <div class = "row">
+<div class="bg-img">
+    <div class = "container">
+  <div class = "row ">
     <%= render "trainings/new", training:@training_new, food:@food_new %>
+    <div class = "calendar">
     <div class = "col-md-8.offset-md-1">
       <h2>Training calendar</h2>
       <%= month_calendar events: @trainings do |date, trainings| %>
@@ -18,5 +20,8 @@
        </div>
       <% end %>
     </div>
+    </div>
   </div>
 </div>
+</div>
+
