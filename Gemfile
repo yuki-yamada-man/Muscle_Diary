@@ -76,5 +76,3 @@ gem 'jquery-rails'
 
 gem "dotenv-rails"
 
-gem 'devise-i18n'
-gem 'rails-i18n'
